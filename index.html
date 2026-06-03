@@ -84,19 +84,18 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.97);backdrop
 .trust-chip{display:flex;align-items:center;gap:7px;font-size:12.5px;color:rgba(255,255,255,0.5);}
 
 /* HERO FORM CARD */
-.hero-form-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.18);border-radius:20px;padding:36px 30px;box-shadow:0 24px 64px rgba(0,0,0,0.35);position:relative;overflow:hidden;}
+.hero-form-card{background:#fff;border-radius:20px;padding:36px 30px;box-shadow:0 24px 64px rgba(0,0,0,0.35);position:relative;overflow:hidden;}
 .hero-form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--orange),var(--orange-light));}
-.form-title{font-size:13px;font-weight:600;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
-.form-heading{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;line-height:1.15;margin-bottom:22px;color:#fff;}
-.form-heading span{color:var(--orange-light);}
-.form-field{width:100%;padding:12px 0;border:none;border-bottom:1.5px solid rgba(255,255,255,0.3);font-size:14px;font-family:'Poppins',sans-serif;color:#fff;outline:none;background:transparent;transition:border-color 0.2s;display:block;margin-bottom:14px;}
-.form-field::placeholder{color:rgba(255,255,255,0.5);}
-.form-field:focus{border-color:var(--orange-light);}
-select.form-field{color:rgba(255,255,255,0.85);cursor:pointer;appearance:none;}
-select.form-field option{color:var(--text);background:#fff;}
+.form-title{font-size:13px;font-weight:600;color:var(--text-muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.form-heading{font-family:'Poppins',sans-serif;font-size:28px;font-weight:800;line-height:1.15;margin-bottom:22px;}
+.form-heading span{color:var(--orange);}
+.form-field{width:100%;padding:12px 0;border:none;border-bottom:1.5px solid var(--border);font-size:14px;font-family:'Poppins',sans-serif;color:var(--text);outline:none;background:transparent;transition:border-color 0.2s;display:block;margin-bottom:14px;}
+.form-field::placeholder{color:var(--text-light);}
+.form-field:focus{border-color:var(--orange);}
+select.form-field{color:var(--text-muted);cursor:pointer;appearance:none;}
 .btn-submit{width:100%;padding:14px;background:var(--orange);color:#fff;font-size:15px;font-weight:700;border:none;border-radius:var(--radius-sm);cursor:pointer;font-family:'Poppins',sans-serif;transition:all 0.25s;margin-top:6px;}
 .btn-submit:hover{background:var(--orange-dark);transform:translateY(-1px);}
-.form-note{font-size:11.5px;color:rgba(255,255,255,0.5);text-align:center;margin-top:10px;line-height:1.5;}
+.form-note{font-size:11.5px;color:var(--text-light);text-align:center;margin-top:10px;line-height:1.5;}
 
 /* PARTNERS */
 .partners-strip{background:var(--off-white);border-bottom:1px solid var(--border);padding:18px 0;}
@@ -258,18 +257,8 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
 }
 
 /* ANIMATIONS */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
-.reveal.in{opacity:1;transform:translateY(0);}
-/* legacy alias */
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.6s cubic-bezier(0.22,1,0.36,1),transform 0.6s cubic-bezier(0.22,1,0.36,1);}
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .fade-up.in{opacity:1;transform:translateY(0);}
-
-/* 3D TILT */
-.highlight-card,.course-card,.testi-card{will-change:transform;transform-style:preserve-3d;}
-.stat-item{will-change:transform;transform-style:preserve-3d;transition:transform 0.4s ease,box-shadow 0.4s ease;}
-
-/* COUNT-UP */
-.stat-num{display:block;transition:color 0.3s;}
 
 /* RESPONSIVE */
 @media(max-width:1024px){
@@ -283,52 +272,14 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
 }
 @media(max-width:768px){
   section{padding:60px 20px;}
-  .topbar{display:none;}
   .nav-menu,.nav-cta{display:none;}
-  .nav-inner{padding:0 16px;height:64px;}
-  .nav-logo{margin-right:12px;}
-  .nav-logo img{height:42px !important;}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   .stat-item:nth-child(2){border-right:none;}
   .highlights-grid,.courses-grid,.batches-grid,.locations-grid{grid-template-columns:1fr;}
   .footer-grid{grid-template-columns:1fr;gap:28px;}
   .footer-bottom{flex-direction:column;gap:14px;text-align:center;}
   .courses-header{flex-direction:column;align-items:flex-start;}
-  .hamburger{display:flex;}
-  .mobile-fab{display:flex;}
 }
-
-/* HAMBURGER BUTTON */
-.hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:42px;height:42px;border:none;background:var(--orange-pale);border-radius:var(--radius-sm);cursor:pointer;margin-left:auto;flex-shrink:0;transition:background 0.2s;}
-.hamburger span{display:block;width:20px;height:2px;background:var(--orange);border-radius:2px;transition:all 0.3s cubic-bezier(0.23,1,0.32,1);}
-.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
-.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-/* MOBILE NAV OVERLAY */
-.mobile-nav-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.45);z-index:998;opacity:0;pointer-events:none;transition:opacity 0.3s ease;backdrop-filter:blur(4px);}
-.mobile-nav-overlay.open{opacity:1;pointer-events:auto;}
-
-/* MOBILE NAV PANEL */
-.mobile-nav{position:fixed;top:0;right:0;width:min(320px,90vw);height:100%;background:#fff;z-index:999;transform:translateX(100%);transition:transform 0.38s cubic-bezier(0.23,1,0.32,1);box-shadow:-8px 0 40px rgba(0,0,0,0.18);display:flex;flex-direction:column;overflow-y:auto;}
-.mobile-nav.open{transform:translateX(0);}
-.mobile-nav-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--border);background:var(--navy);}
-.mobile-nav-close{width:36px;height:36px;border:none;background:rgba(255,255,255,0.12);border-radius:8px;color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
-.mobile-nav-links{flex:1;padding:12px 0;}
-.mn-link{display:flex;align-items:center;gap:12px;padding:14px 22px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);transition:background 0.18s,color 0.18s;}
-.mn-link:hover{background:var(--orange-pale);color:var(--orange);}
-.mn-link .mn-emoji{font-size:17px;width:26px;text-align:center;}
-.mn-section{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:700;padding:16px 22px 6px;}
-.mobile-nav-footer{padding:18px 20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px;}
-.mn-btn{display:block;text-align:center;padding:13px;border-radius:var(--radius-sm);font-size:14px;font-weight:700;text-decoration:none;transition:all 0.2s;font-family:'Poppins',sans-serif;}
-.mn-btn-primary{background:var(--orange);color:#fff;}
-.mn-btn-primary:hover{background:var(--orange-dark);}
-.mn-btn-outline{background:transparent;color:var(--orange);border:1.5px solid var(--orange);}
-.mn-btn-outline:hover{background:var(--orange-pale);}
-
-/* FLOATING MOBILE CTA */
-.mobile-fab{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:500;background:var(--orange);color:#fff;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 28px rgba(232,126,38,0.45);white-space:nowrap;font-family:'Poppins',sans-serif;transition:transform 0.2s,box-shadow 0.2s;}
-.mobile-fab:hover{transform:translateX(-50%) translateY(-2px);box-shadow:0 12px 36px rgba(232,126,38,0.55);}
 </style>
 </head>
 <body>
@@ -368,20 +319,20 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
         <div class="mega-dd">
           <div class="mega-col">
             <h4>By Audience</h4>
-            <a href="#courses"><span class="mc-icon">🎒</span><span>School Students</span></a>
-            <a href="#courses"><span class="mc-icon">🎓</span><span>College Students</span></a>
-            <a href="#courses"><span class="mc-icon">🧑‍💼</span><span>Graduates</span></a>
-            <a href="#courses"><span class="mc-icon">💼</span><span>Working Professionals</span></a>
-            <a href="#courses"><span class="mc-icon">🏢</span><span>Enterprises</span></a>
+            <a href="#"><span class="mc-icon">🎒</span><span>School Students</span></a>
+            <a href="#"><span class="mc-icon">🎓</span><span>College Students</span></a>
+            <a href="#"><span class="mc-icon">🧑‍💼</span><span>Graduates</span></a>
+            <a href="#"><span class="mc-icon">💼</span><span>Working Professionals</span></a>
+            <a href="#"><span class="mc-icon">🏢</span><span>Enterprises</span></a>
           </div>
           <div class="mega-col">
             <h4>Popular Programs</h4>
-            <a href="course-fullstack.html"><span class="mc-icon">💻</span><span>Full Stack Development</span></a>
-            <a href="course-fintech.html"><span class="mc-icon">📊</span><span>FinTech &amp; Analytics</span></a>
-            <a href="course-graphicdesign.html"><span class="mc-icon">🎨</span><span>Graphic Design</span></a>
-            <a href="course-digitalmarketing.html"><span class="mc-icon">📱</span><span>Digital Marketing</span></a>
-            <a href="course-ai.html"><span class="mc-icon">🤖</span><span>AI &amp; GenAI</span></a>
-            <a href="course-dataanalytics.html"><span class="mc-icon">📈</span><span>Tally &amp; Accounting</span></a>
+            <a href="#"><span class="mc-icon">💻</span><span>Full Stack Development</span></a>
+            <a href="#"><span class="mc-icon">📊</span><span>FinTech &amp; Analytics</span></a>
+            <a href="#"><span class="mc-icon">🎨</span><span>Graphic Design</span></a>
+            <a href="#"><span class="mc-icon">📱</span><span>Digital Marketing</span></a>
+            <a href="#"><span class="mc-icon">🤖</span><span>AI &amp; GenAI</span></a>
+            <a href="#"><span class="mc-icon">📈</span><span>Tally &amp; Accounting</span></a>
           </div>
         </div>
       </div>
@@ -402,44 +353,8 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
       <a href="tel:+917021733916" class="btn-outline">📞 Call Us</a>
       <a href="#enroll" class="btn-orange">Enquire Now</a>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
 </nav>
-
-<!-- MOBILE NAV OVERLAY -->
-<div class="mobile-nav-overlay" id="mob-overlay"></div>
-
-<!-- MOBILE NAV PANEL -->
-<div class="mobile-nav" id="mob-nav">
-  <div class="mobile-nav-header">
-    <span style="color:#fff;font-size:16px;font-weight:800;letter-spacing:1.5px;">DVOC INSTITUTE</span>
-    <button class="mobile-nav-close" id="mob-close">✕</button>
-  </div>
-  <div class="mobile-nav-links">
-    <div class="mn-section">Navigate</div>
-    <a href="#" class="mn-link"><span class="mn-emoji">🏠</span> Home</a>
-    <a href="#courses" class="mn-link"><span class="mn-emoji">📚</span> Courses</a>
-    <a href="#batches" class="mn-link"><span class="mn-emoji">📅</span> Our Events</a>
-    <a href="#locations" class="mn-link"><span class="mn-emoji">📍</span> Locations</a>
-    <a href="#cta" class="mn-link"><span class="mn-emoji">✉️</span> Contact Us</a>
-    <div class="mn-section">Popular Courses</div>
-    <a href="course-fullstack.html" class="mn-link"><span class="mn-emoji">💻</span> Full Stack Dev</a>
-    <a href="course-fintech.html" class="mn-link"><span class="mn-emoji">📊</span> FinTech &amp; Analytics</a>
-    <a href="course-graphicdesign.html" class="mn-link"><span class="mn-emoji">🎨</span> Graphic Design</a>
-    <a href="course-digitalmarketing.html" class="mn-link"><span class="mn-emoji">📱</span> Digital Marketing</a>
-    <a href="course-ai.html" class="mn-link"><span class="mn-emoji">🤖</span> AI &amp; GenAI</a>
-    <a href="course-dataanalytics.html" class="mn-link"><span class="mn-emoji">📈</span> Data Analytics</a>
-  </div>
-  <div class="mobile-nav-footer">
-    <a href="#enroll" class="mn-btn mn-btn-primary">📋 Enquire Now</a>
-    <a href="tel:+917021733916" class="mn-btn mn-btn-outline">📞 Call +91 7021733916</a>
-  </div>
-</div>
-
-<!-- FLOATING MOBILE CTA -->
-<a href="tel:+917021733916" class="mobile-fab">📞 Call Now — Free Counselling</a>
 
 <!-- HERO -->
 <div class="hero" id="enroll">
@@ -460,17 +375,17 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
         <span class="trust-chip">📍 3 Branches</span>
       </div>
     </div>
-    <form class="hero-form-card" id="expert-enquiry-form">
+    <div class="hero-form-card">
       <div class="form-title">Talk to Our</div>
       <div class="form-heading"><span>EXPERTS</span></div>
-      <input type="text" class="form-field" name="name" placeholder="Your Name" required/>
-      <input type="email" class="form-field" name="email" placeholder="Your Email" required/>
-      <input type="tel" class="form-field" name="phone" placeholder="Phone" required/>
-      <select class="form-field" name="userType" required><option value="" disabled selected>I am a...</option><option>School Student</option><option>College Student</option><option>Graduate</option><option>Working Professional</option></select>
-      <select class="form-field" name="branch" required><option value="" disabled selected>Preferred Branch</option><option>Andheri</option><option>Vile Parle</option><option>Grant Road</option></select>
+      <input type="text" class="form-field" placeholder="Your Name"/>
+      <input type="email" class="form-field" placeholder="Your Email"/>
+      <input type="tel" class="form-field" placeholder="Phone"/>
+      <select class="form-field"><option value="" disabled selected>I am a...</option><option>School Student</option><option>College Student</option><option>Graduate</option><option>Working Professional</option></select>
+      <select class="form-field"><option value="" disabled selected>Preferred Branch</option><option>Andheri</option><option>Vile Parle</option><option>Grant Road</option></select>
       <button class="btn-submit">Submit →</button>
       <p class="form-note">Please note that your personal data will be used as per the <a href="#" style="color:var(--orange)">Privacy Policy</a>.</p>
-    </form>
+    </div>
   </div>
 </div>
 
@@ -791,206 +706,10 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
 </footer>
 
 <script>
-// ── Auto-tag elements for scroll reveal ───────────────────────
-const REVEAL_SELECTORS = [
-  '.section-label',
-  '.section-title',
-  '.section-desc',
-  '.cta-tag',
-  '.cta-title',
-  '.cta-desc',
-  '.partner-pill',
-  '.loc-icon',
-  '.loc-name',
-  '.footer-col h5',
-  '.hero-badge',
-  '.hero h1',
-  '.hero-desc',
-  '.hero-actions',
-  '.hero-trust',
-  '.course-card',
-  '.courses-header',
-  '.tab-row',
-];
-REVEAL_SELECTORS.forEach(sel => {
-  document.querySelectorAll(sel).forEach(el => {
-    if (!el.classList.contains('reveal') && !el.classList.contains('fade-up')) {
-      el.classList.add('reveal');
-    }
-  });
-});
-
-// ── Fade-up / Reveal on scroll (500ms base delay + stagger) ────
-const BASE_DELAY = 0;  // ms — no wait, animate immediately on enter
-const STAGGER    = 80; // ms per sibling
-
-function makeRevealObs() {
-  return new IntersectionObserver((entries) => {
-    // Group by parent so siblings stagger together
-    const groups = new Map();
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      const parent = entry.target.parentElement;
-      if (!groups.has(parent)) groups.set(parent, []);
-      groups.get(parent).push(entry.target);
-    });
-    groups.forEach(els => {
-      els.forEach((el, i) => {
-        setTimeout(() => el.classList.add('in'), BASE_DELAY + i * STAGGER);
-      });
-    });
-    // Also handle lone elements not grouped
-    entries.forEach((entry, i) => {
-      if (!entry.isIntersecting) return;
-      if (!entry.target.classList.contains('in')) {
-        setTimeout(() => entry.target.classList.add('in'), BASE_DELAY);
-      }
-    });
-  }, { threshold: 0.12 });
-}
-
-const revealObs = makeRevealObs();
-document.querySelectorAll('.reveal, .fade-up').forEach(el => revealObs.observe(el));
-
-// ── Tab buttons ────────────────────────────────────────────────
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
-
-// ── Smooth anchor scroll ───────────────────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const id = a.getAttribute('href');
-    if (id === '#') return;
-    const t = document.querySelector(id);
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-
-// ── Count-up animation ─────────────────────────────────────────
-function animateCountUp(el, target, suffix, duration) {
-  const startTime = performance.now();
-  function tick(now) {
-    const elapsed = Math.min((now - startTime) / duration, 1);
-    // Ease-out cubic
-    const ease = 1 - Math.pow(1 - elapsed, 3);
-    const current = Math.floor(ease * target);
-    el.textContent = (suffix === 'K+' ? current : current) + (suffix === 'K+' ? 'K+' : suffix);
-    if (elapsed < 1) requestAnimationFrame(tick);
-    else el.textContent = target + (suffix === 'K+' ? 'K+' : suffix);
-  }
-  requestAnimationFrame(tick);
-}
-
-const statEls = document.querySelectorAll('.stat-num');
-statEls.forEach(el => {
-  const raw = el.textContent.trim(); // e.g. "10K+", "95%", "15+"
-  let target, suffix;
-  if (raw.includes('K+')) {
-    target = parseInt(raw);   // "10K+" → 10
-    suffix = 'K+';
-  } else if (raw.includes('%')) {
-    target = parseInt(raw);
-    suffix = '%';
-  } else if (raw.includes('+')) {
-    target = parseInt(raw);
-    suffix = '+';
-  } else {
-    target = parseInt(raw);
-    suffix = '';
-  }
-  el.dataset.target = target;
-  el.dataset.suffix = suffix;
-  el.textContent = '0' + suffix;
-});
-
-const statsObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix;
-      animateCountUp(el, target, suffix, 1800);
-      statsObs.unobserve(el);
-    }
-  });
-}, { threshold: 0.6 });
-
-statEls.forEach(el => statsObs.observe(el));
-
-// ── 3D Mouse-tilt effect ───────────────────────────────────────
-function apply3DTilt(selector, maxDeg = 8, lift = -6) {
-  document.querySelectorAll(selector).forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const rotX = ((y - cy) / cy) * -maxDeg;
-      const rotY = ((x - cx) / cx) * maxDeg;
-      card.style.transform =
-        `perspective(600px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(${lift}px) scale(1.04)`;
-      card.style.transition = 'transform 0.08s linear';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-      card.style.transition = 'transform 0.5s cubic-bezier(0.23,1,0.32,1)';
-    });
-    card.addEventListener('mouseenter', () => {
-      card.style.transition = 'transform 0.2s ease';
-    });
-  });
-}
-
-apply3DTilt('.highlight-card', 8, -5);
-apply3DTilt('.course-card', 6, -5);
-apply3DTilt('.testi-card', 5, -4);
-apply3DTilt('.stat-item', 6, -3);
-apply3DTilt('.batch-card', 4, -3);
-
-// ── Mobile Navigation Toggle ───────────────────────────────────
-const hamburger = document.getElementById('hamburger');
-const mobNav = document.getElementById('mob-nav');
-const mobOverlay = document.getElementById('mob-overlay');
-const mobClose = document.getElementById('mob-close');
-
-if (hamburger && mobNav && mobOverlay) {
-  const toggleMenu = () => {
-    const isOpen = mobNav.classList.contains('open');
-    if (isOpen) {
-      hamburger.classList.remove('open');
-      mobNav.classList.remove('open');
-      mobOverlay.classList.remove('open');
-      document.body.style.overflow = '';
-    } else {
-      hamburger.classList.add('open');
-      mobNav.classList.add('open');
-      mobOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-  };
-
-  const closeMenu = () => {
-    hamburger.classList.remove('open');
-    mobNav.classList.remove('open');
-    mobOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  hamburger.addEventListener('click', toggleMenu);
-  if (mobClose) mobClose.addEventListener('click', closeMenu);
-  mobOverlay.addEventListener('click', closeMenu);
-
-  const mnLinks = mobNav.querySelectorAll('.mn-link, .mn-btn');
-  mnLinks.forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-}
+const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('in'),i*70);});},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');});});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
 </script>
-<script src="form-handler.js"></script>
 </body>
 </html>
