@@ -285,6 +285,9 @@ footer{background:var(--dark);border-top:3px solid var(--orange);padding:64px 32
   section{padding:60px 20px;}
   .topbar{display:none;}
   .nav-menu,.nav-cta{display:none;}
+  .nav-inner{padding:0 16px;height:64px;}
+  .nav-logo{margin-right:12px;}
+  .nav-logo img{height:42px !important;}
   .stats-inner{grid-template-columns:repeat(2,1fr);}
   .stat-item:nth-child(2){border-right:none;}
   .highlights-grid,.courses-grid,.batches-grid,.locations-grid{grid-template-columns:1fr;}
@@ -948,6 +951,45 @@ apply3DTilt('.course-card', 6, -5);
 apply3DTilt('.testi-card', 5, -4);
 apply3DTilt('.stat-item', 6, -3);
 apply3DTilt('.batch-card', 4, -3);
+
+// ── Mobile Navigation Toggle ───────────────────────────────────
+const hamburger = document.getElementById('hamburger');
+const mobNav = document.getElementById('mob-nav');
+const mobOverlay = document.getElementById('mob-overlay');
+const mobClose = document.getElementById('mob-close');
+
+if (hamburger && mobNav && mobOverlay) {
+  const toggleMenu = () => {
+    const isOpen = mobNav.classList.contains('open');
+    if (isOpen) {
+      hamburger.classList.remove('open');
+      mobNav.classList.remove('open');
+      mobOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      hamburger.classList.add('open');
+      mobNav.classList.add('open');
+      mobOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeMenu = () => {
+    hamburger.classList.remove('open');
+    mobNav.classList.remove('open');
+    mobOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  hamburger.addEventListener('click', toggleMenu);
+  if (mobClose) mobClose.addEventListener('click', closeMenu);
+  mobOverlay.addEventListener('click', closeMenu);
+
+  const mnLinks = mobNav.querySelectorAll('.mn-link, .mn-btn');
+  mnLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+}
 </script>
 <script src="form-handler.js"></script>
 </body>
